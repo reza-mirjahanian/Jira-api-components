@@ -6,15 +6,17 @@ import {
   Component, ComponentWithIssueCount
 } from '../Types';
 export default class Jira {
+
   private readonly JIRA_API_URL
   private readonly PROJECT_KEY
+
   constructor(projectKey = 'IC') {
     this.JIRA_API_URL = constants.JIRA.API.URL;
     this.PROJECT_KEY = encodeURI(projectKey);
   }
 
   /**
-   * Return the list of all components
+   * Return the list of all components (including lead components)
    */
   async getAllComponents(): Promise < Component[] > {
     try {
@@ -64,6 +66,7 @@ export default class Jira {
         const {
           data
         } = await axios.get(`${this.JIRA_API_URL}/search?jql=project=${this.PROJECT_KEY} and component is not empty&startAt=${start}&maxResults=${paginationSize}&fields=components`);
+
         ({
           startAt,
           maxResults,
@@ -74,6 +77,7 @@ export default class Jira {
           throw Error('Wrong response from server!')
         }
 
+        //Count issues per each component
         _.forEach(_.get(data, 'issues'), n => {
           _.forEach(_.get(n, 'fields.components'), c => {
             const {
@@ -86,7 +90,7 @@ export default class Jira {
           })
         });
 
-
+        //Check we are on the last page
         if (startAt + maxResults >= total) {
           break
         }
@@ -105,7 +109,7 @@ export default class Jira {
 
 
   /**
-   * Return the list of non-lead components along with the number of issues
+   * Return the list of non-lead components along with the number of issues.
    */
   async getNonLeadComponentsWithIssuesCount(): Promise<ComponentWithIssueCount[]> {
     try {
@@ -122,7 +126,6 @@ export default class Jira {
           ...c
         }
       });
-
 
     } catch (e) {
       Logger.error("Jira:getNonLeadComponentsWithIssuesCount()", {

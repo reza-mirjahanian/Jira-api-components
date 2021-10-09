@@ -6,6 +6,7 @@ import Logger from "../utils/logger";
 
 export default class Printer {
 
+  //Why interface? You can add file printers, console printers, ...
   constructor(private adaptor: IPrint) {}
 
   async print(data: ComponentWithIssueCount[]) {

@@ -4,6 +4,8 @@ import _ from "lodash";
 import {table} from "table";
 
 export default class StdAdaptor implements IPrint{
+
+    //Why async? For handling the IO write.
     async print(data: ComponentWithIssueCount[]) {
         data.forEach((item, index)=>{
             const tmp = [];
