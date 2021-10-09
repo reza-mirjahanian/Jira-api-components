@@ -12,7 +12,8 @@ Create JavaScript code that uses Jira REST API to retrieve data from the Issue C
 - `npm run coverage` - Runs code coverage.
 
 #### Assumptions
-- ✅ There are some screenshots from my answer in 'output' folder.
+- ✅ There are some screenshots from my answer in the 'output' folder.
+- ✅ We assume the Jira response format is not going to change.
 - ✅ I've used 'nock' for mocking the rest API.
 - ✅ It is TypeScript, We should compile it for production!
 
