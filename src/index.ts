@@ -12,7 +12,11 @@ const test = async () => {
   await printer.print(data);
 };
 
-test().then(() => {
+test().catch((error) => {
+  logger.error(error,{
+    message: 'Error in running server'
+  });
+}).finally(() => {
   process.exit();
 });
 
