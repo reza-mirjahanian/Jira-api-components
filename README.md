@@ -23,5 +23,4 @@ Create JavaScript code that uses Jira REST API to retrieve data from the Issue C
 - 💡 Maybe in-memory cache
 - 💡 Adding file adaptor for output
 - 💡 Compare third-party libs for benchmark
-- 💡 
 
