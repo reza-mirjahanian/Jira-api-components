@@ -15,12 +15,7 @@ Create JavaScript code that uses Jira REST API to retrieve data from the Issue C
 - ✅ There are some screenshots from my answer in the 'output' folder.
 - ✅ We assume the Jira response format is not going to change.
 - ✅ I've used 'nock' for mocking the rest API.
-- ✅ It is TypeScript, We should compile it for production!
 
 
 #### Todo & If I have more time:
 - 💡 Better testing
-- 💡 Maybe in-memory cache
-- 💡 Adding file adaptor for output
-- 💡 Compare third-party libs for benchmark
-
