@@ -19,3 +19,4 @@ Create JavaScript code that uses Jira REST API to retrieve data from the Issue C
 
 #### Todo & If I have more time:
 - 💡 Better testing
+- 💡 Check 'https://herocoders.atlassian.net/rest/api/3/component/10104/relatedIssueCounts'
