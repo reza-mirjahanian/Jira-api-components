@@ -51,6 +51,7 @@ module.exports = class Jira {
                         total
                     }
                 } = await axios.get(`${this.JIRA_API_URL}/search?jql=project=${this.PROJECT_KEY} and component = ${component.id} &fields=components`);
+
                 return {
                     issuesCount: total,
                     ...component
