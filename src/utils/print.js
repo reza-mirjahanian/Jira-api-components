@@ -3,6 +3,7 @@ const {
   table
 } = require("table");
 
+//Maybe move it to the Jira Class.
 module.exports = (data = []) => {
   data.forEach((item, index) => {
     const tmp = [];

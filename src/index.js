@@ -9,7 +9,7 @@ const test = async () => {
 
 test().catch((error) => {
   console.error(error, {
-    message: 'Error in running server'
+    message: 'Error in running test()'
   });
 }).finally(() => {
   process.exit();
